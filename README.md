@@ -1,11 +1,11 @@
 # Automatic Solar Tracking System
 
-Arduino-based automatic solar tracking system using LDR sensors, servo motor control, LCD I2C display, and irradiance estimation.
+This project is an Arduino Mega 2560 solar tracking system made for a Microprocessors final project. It uses two LDR sensors to compare light levels and moves a servo motor so the solar panel can point toward the stronger light source.
 
 ## Hardware Used
 
 - Arduino Mega 2560
-- LDR sensors
+- Two LDR sensors
 - Servo motor
 - LCD 16x2 I2C
 - Solar panel
@@ -13,11 +13,11 @@ Arduino-based automatic solar tracking system using LDR sensors, servo motor con
 
 ## Features
 
-- Automatic solar tracking
-- Servo positioning based on LDR readings
-- Voltage monitoring
+- Automatic light tracking
+- Servo movement based on LDR readings
+- Solar panel voltage monitoring
 - Irradiance estimation
-- LCD real-time display
+- Real-time LCD display
 
 ## Main Libraries
 
@@ -27,17 +27,17 @@ Arduino-based automatic solar tracking system using LDR sensors, servo motor con
 
 ## Code Overview
 
-The Arduino code initializes the LCD, servo motor, and serial communication in setup().
+The code starts by initializing the LCD, servo motor, and Serial Monitor.
 
-At startup, the calibrarLDR() function reads both LDR sensors multiple times and calculates an adjustment value. This helps compensate if one LDR gives a higher reading than the other under the same light.
+When the system turns on, the LDR sensors are calibrated. The program reads both LDRs several times and calculates an adjustment so both sensors are closer in value under the same light.
 
-In loop(), the program reads LDR1, LDR2, and the solar panel voltage using analog input pins A0, A1, and A2.
+In the main loop, the Arduino reads LDR1, LDR2, and the solar panel voltage using A0, A1, and A2.
 
-The code calculates the solar panel voltage using the Arduino ADC reading. It also estimates illuminance from the average LDR reading and then estimates irradiance using lux / 120.
+The panel voltage is calculated from the Arduino ADC reading. The code also estimates light level from the average LDR reading and then calculates irradiance using lux / 120.
 
-The program compares the difference between both LDR readings. If the difference is greater than the tolerance value, the servo moves slowly toward the stronger light source. If the readings are similar for 10 seconds, the servo returns to the center position.
+The program compares both LDR readings. If one side has more light than the other, the servo moves slowly toward that side. If both readings are close for 10 seconds, the servo returns to the center position.
 
-The LCD displays panel voltage, irradiance, and servo position in real time.
+The LCD shows the panel voltage, irradiance, and servo position.
 
 ## Repository Contents
 
