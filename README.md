@@ -1,6 +1,6 @@
 # Automatic Solar Tracking System
 
-This project is an Arduino Mega 2560 solar tracking system made for a Microprocessors final project. It uses two LDR sensors to compare light levels and moves a servo motor so the solar panel can point toward the stronger light source.
+This Arduino Mega 2560 solar tracking system was created for a Microprocessors final project. It compares light levels using two LDR sensors and then uses a servo motor to move the solar panel in the direction of the stronger light source. It employs a servo motor to direct the solar panel toward the stronger light source after comparing light levels using two LDR sensors.
 
 ## Hardware Used
 
@@ -29,7 +29,7 @@ This project is an Arduino Mega 2560 solar tracking system made for a Microproce
 
 The code starts by initializing the LCD, servo motor, and Serial Monitor.
 
-When the system turns on, the LDR sensors are calibrated. The program reads both LDRs several times and calculates an adjustment so both sensors are closer in value under the same light.
+The LDR sensors are calibrated when the system is turned on. The software reads both LDRs multiple times and determines an adjustment to make both sensors' values closer under the same light. In order to make both sensors' values closer under the same light, the program scans both LDRs multiple times and computes an adjustment.
 
 In the main loop, the Arduino reads LDR1, LDR2, and the solar panel voltage using A0, A1, and A2.
 
